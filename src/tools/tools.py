@@ -9,6 +9,7 @@ from readability import Document
 import trafilatura
 import re 
 
+
 load_dotenv()
 
 tavily = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
@@ -27,6 +28,9 @@ def web_search(query : str) -> str:
     
     return "\n----\n".join(out)
 
+   
+    
+
 @tool
 def scrape_url(url: str) -> str:
     """
@@ -44,7 +48,7 @@ def scrape_url(url: str) -> str:
         "Referer": "https://www.google.com/",
     }
 
-        try:
+    try:
         # ── Fetch page ─────────────────────────────────────
         response = requests.get(
             url,
